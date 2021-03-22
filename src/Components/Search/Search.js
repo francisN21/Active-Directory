@@ -1,12 +1,15 @@
 import React from "react";
 
-const Search = () => {
+const Search = (props) => {
   return (
     <div>
       <form class="d-flex">
         <input
+          onChange={props.handleInputChange}
+          value={props.search}
           className="form-control me-2"
-          type="search"
+          name="search"
+          type="text"
           placeholder="Search"
           aria-label="Search"
         />
