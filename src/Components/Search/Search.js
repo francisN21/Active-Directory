@@ -1,21 +1,19 @@
 import React from "react";
+import "./Search.css";
 
 const Search = (props) => {
   return (
     <div>
-      <form class="d-flex">
+      <form className="">
         <input
           onChange={props.handleInputChange}
           value={props.userSearch}
-          className="form-control me-2"
+          className="form-control me-2 search-bar"
           name="search"
           type="text"
-          placeholder="Search"
+          placeholder="Search by First or Last name"
           aria-label="Search"
         />
-        <button className="btn btn-outline-success" type="submit">
-          Search
-        </button>
       </form>
     </div>
   );

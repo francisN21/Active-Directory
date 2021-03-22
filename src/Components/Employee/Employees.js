@@ -5,6 +5,7 @@ import "./Employees.css";
 
 export default class Employees extends Component {
   state = {
+    sort: "",
     employees: [],
     userSearch: "",
   };
@@ -19,6 +20,7 @@ export default class Employees extends Component {
   handleInputChange = (e) => {
     if ((e.target.name = "search")) {
       let userInput = e.target.value.toLowerCase() || e.target.value;
+      //   need to add this function to add typed string
       const addInput = (x) => {
         let str = "";
         str += x;
@@ -30,6 +32,17 @@ export default class Employees extends Component {
       };
       addInput(userInput);
     }
+  };
+  sortByFirstname = () => {
+    const sortName = this.state.results.sort((x, y) => {
+      if (x.name.first < y.name.first) {
+        return -1;
+      }
+      if (x.name.first > y.name.first) {
+        return 1;
+      }
+      return 0;
+    });
   };
 
   render() {

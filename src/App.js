@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="row">
-        <Nav sticky="top" />
+        <Nav />
       </div>
 
       <div className="content-container">
