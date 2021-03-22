@@ -36,15 +36,20 @@ export default class Employees extends Component {
   };
 
   sortByFirstname = () => {
-    const sortName = this.state.results.sort((x, y) => {
+    const sortName = this.state.employees.sort((x, y) => {
       if (x.name.first < y.name.first) {
         return -1;
       }
       if (x.name.first > y.name.first) {
         return 1;
       }
-      return 0;
     });
+    if (this.state.sort === "y") {
+      sortName.reverse();
+      this.setState({ sort: "x" });
+    } else {
+      this.setState({ sort: "y" });
+    }
     this.setState({ employees: sortName });
   };
 
@@ -55,6 +60,7 @@ export default class Employees extends Component {
           handleInputChange={this.handleInputChange}
           search={this.state.userSearch}
         />
+        <button onClick={this.sortByFirstname}>Sort by Name</button>
         {this.state.employees.map((employee) =>
           employee.name.first.toLowerCase().includes(this.state.userSearch) ? (
             <div key={employee.login.uuid} className="user-container col-md-12">
