@@ -17,11 +17,18 @@ export default class Employees extends Component {
       .catch((err) => console.log(err));
   }
   handleInputChange = (e) => {
-    if (e.target.name === "search") {
-      const userInput = e.target.value.toLowerCase();
-      this.setState({
-        userSearch: userInput,
-      });
+    if ((e.target.name = "search")) {
+      let userInput = e.target.value.toLowerCase() || e.target.value;
+      const addInput = (x) => {
+        let str = "";
+        str += x;
+
+        this.setState({
+          userSearch: str,
+        });
+        console.log(str);
+      };
+      addInput(userInput);
     }
   };
 
@@ -31,31 +38,44 @@ export default class Employees extends Component {
         <Search
           handleInputChange={this.handleInputChange}
           search={this.state.userSearch}
-          onChange={console.log(this.state.userSearch)}
         />
-        {this.state.employees &&
-          this.state.employees.map((employee) =>
-            this.state.userSearch ? (
-              <div
-                key={employee.login.uuid}
-                className="user-container col-md-12"
-              >
-                <img
-                  className="user-image"
-                  src={employee.picture.medium}
-                  alt="dp"
-                />
-                <p>
-                  {employee.name.first} {employee.name.last}
-                </p>
-                <p>
-                  {employee.location.city}, {employee.location.state}
-                </p>
-                <p>{employee.email}</p>
-                <p>{employee.cell}</p>
-              </div>
-            ) : null
-          )}
+        {this.state.employees.map((employee) =>
+          employee.name.first.toLowerCase().includes(this.state.userSearch) ? (
+            <div key={employee.login.uuid} className="user-container col-md-12">
+              <img
+                className="user-image"
+                src={employee.picture.medium}
+                alt="dp"
+              />
+              <p>
+                {employee.name.first} {employee.name.last}
+              </p>
+              <p>
+                {employee.location.city}, {employee.location.state}
+              </p>
+              <p>{employee.email}</p>
+              <p>{employee.cell}</p>
+            </div>
+          ) : employee.name.last
+              .toLowerCase()
+              .includes(this.state.userSearch) ? (
+            <div key={employee.login.uuid} className="user-container col-md-12">
+              <img
+                className="user-image"
+                src={employee.picture.medium}
+                alt="dp"
+              />
+              <p>
+                {employee.name.first} {employee.name.last}
+              </p>
+              <p>
+                {employee.location.city}, {employee.location.state}
+              </p>
+              <p>{employee.email}</p>
+              <p>{employee.cell}</p>
+            </div>
+          ) : null
+        )}
       </div>
     );
   }

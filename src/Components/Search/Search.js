@@ -6,7 +6,7 @@ const Search = (props) => {
       <form class="d-flex">
         <input
           onChange={props.handleInputChange}
-          value={props.search}
+          value={props.userSearch}
           className="form-control me-2"
           name="search"
           type="text"
