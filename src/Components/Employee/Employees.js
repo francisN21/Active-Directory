@@ -17,6 +17,7 @@ export default class Employees extends Component {
       })
       .catch((err) => console.log(err));
   }
+
   handleInputChange = (e) => {
     if ((e.target.name = "search")) {
       let userInput = e.target.value.toLowerCase() || e.target.value;
@@ -33,6 +34,7 @@ export default class Employees extends Component {
       addInput(userInput);
     }
   };
+
   sortByFirstname = () => {
     const sortName = this.state.results.sort((x, y) => {
       if (x.name.first < y.name.first) {
@@ -43,6 +45,7 @@ export default class Employees extends Component {
       }
       return 0;
     });
+    this.setState({ employees: sortName });
   };
 
   render() {
