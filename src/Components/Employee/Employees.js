@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Search from "../Search/Search";
 import API from "../Utils/API";
 import "./Employees.css";
 
@@ -18,6 +19,7 @@ export default class Employees extends Component {
   render() {
     return (
       <div className="container position-relative">
+        <Search value={this.state.employees} />
         {this.state.employees.map((employee) => (
           <div key={employee.login.uuid} className="user-container col-md-12">
             <img
