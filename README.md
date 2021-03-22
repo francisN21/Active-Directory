@@ -1,5 +1,6 @@
-
 # Active Directory
+
+![Image](./React-App.gif)
 
 ### Descritption
 
@@ -16,17 +17,17 @@ For filtering and searching employee
 
 ### Table of Contents
 
-  [Description](###Descritption)
+[Description](###Descritption)
 
-  [Installation](###Installation)
+[Installation](###Installation)
 
-  [Usage](###Usage)
+[Usage](###Usage)
 
-  [License](###License)
+[License](###License)
 
-  [Contributing](###Contributions)
+[Contributing](###Contributions)
 
-  [Tests](###Tests)
+[Tests](###Tests)
 
 ### License
 
